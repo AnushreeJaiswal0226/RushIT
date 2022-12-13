@@ -1,6 +1,5 @@
 :root{
     --navfont: 18px;
-    --maintext: red;
     --maincolor: green;
 }
 
@@ -10,8 +9,15 @@
     box-sizing: border-box;
 }
 
+/*::-webkit-scrollbar {
+    display: block;
+}*/
+
 body{
-    background: lightgreen;
+    padding: 0;
+    margin: 0;
+    background: #000;
+    scroll-behavior: smooth;
 }
 
 a{
@@ -28,22 +34,34 @@ ul{
 }
 
 .main-container{
-    border: 2px solid black;
-    margin: 10px;
+    padding: 5px 5px;
 }
 
 .material-symbols-outlined {
-    color: black;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.bgcolor{
+    color: #000;
+    background-color: #fff;
+    transition: 200ms ease-in-out background-color;
+}
+
+.bgcolor #navigation a, #details a, 
+#navigation li.active, #details li.active, 
+label #checkbtn, label #cancelbtn, 
+#details .material-symbols-outlined
+{
+    color: #000;
 }
 
 .nav-wrapper{
     width: 100%;
-    background-color: pink;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,6 +87,12 @@ ul{
     right: 0%;
 }
 
+#details .material-symbols-outlined{
+    color: #fff;
+    font-size: 36px;
+    line-height: 50px;
+}
+
 #navigation li, #details li{
     list-style: none;
     padding: 5px 20px;
@@ -80,8 +104,14 @@ ul{
     font-size: calc(var(--navfont) - 3px);
 }
 
+#details li{
+    margin: auto auto;
+    justify-content: center;
+    align-items: center;
+}
+
 #navigation a, #details a{  
-    color: var(--maintext);
+    color: #fff;
 }
 
 #navigation li a:hover, #details li a:hover{
@@ -89,24 +119,26 @@ ul{
 }
 
 #navigation li.active, #details li.active{
-    background-color: var(--maintext);
+    background-color: #fff;
     transition: 0.3 ease background-color;
 }
 
 #navigation li.active a, #details li.active a{
     font-size: var(--navfont);
-    color: var(--maincolor);
+    color: #fff;
 }
 
 label #checkbtn,
 label #cancelbtn{
-    color: var(--maintext);
+    color: #fff;
     font-size: 30px;
     float: right;
-    line-height: 70px;
+    line-height: 50px;
     margin-right: 20px;
     cursor: pointer;
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 #check{
     display: none;
@@ -136,7 +168,7 @@ label #cancelbtn{
     display: grid;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 20px;
 }
 
 .home-wrapper #banner #first-line{
@@ -157,7 +189,46 @@ label #cancelbtn{
     padding-bottom: 30px;
 }
 
+.gradientcard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gradientcard .gradient{
+    position: absolute;
+    z-index: -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transform: translateY(-75%);
+}
+
+.gradientcard .gradcircle{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: linear-gradient(240deg,#ffec61,#8019d5);
+    filter: blur(55px);
+}
+
+.gradientcard .gradcircle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(240deg,#ffec61,#8019d5);
+    filter: blur(20px);
+    transform: translateX(0px) scale(5);
+}
+
 .home-wrapper #banner #explore{
+    z-index: 10;
     padding: 15px;
     margin: auto auto;
     display: flex;
@@ -183,23 +254,24 @@ label #cancelbtn{
 }
 
 .home-wrapper .animelements{
-    border: none;
-}
-
-#animate-elements2{
     margin: 0px auto 60px auto;
-    width: 320px;
-    height: 250px;
+    width: 400px;
+    height: 220px;
     display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
 
 .animelements .one-square{
     grid-row: 2;
-    width: 175px;
+    width: 150px;
     height: 150px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    position: relative; 
+    top: 100%;
 }
 
 .box{
@@ -266,27 +338,43 @@ label #cancelbtn{
     0 0 500px rgba(0,255,0,1);
 }
 
-.one-square:nth-child(2){
-    width: 140px;
+.one-square:nth-child(1),
+.one-square:nth-child(3){
+    width: 120px;
     height: 120px;
 }
 
-.one-square:nth-child(2) .box{
+.one-square:nth-child(1) .box,
+.one-square:nth-child(3) .box{
     width: 80px;
     height: 80px;
 }
 
-.one-square:nth-child(2) .box div span{
+.one-square:nth-child(1) .box div span,
+.one-square:nth-child(3) .box div span{
     transform: rotateY(calc(90deg * var(--i))) translateZ(40px);
 }
 
-.one-square:nth-child(2) .boxtop{
+.one-square:nth-child(1) .boxtop,
+.one-square:nth-child(3) .boxtop{
     transform: rotateX(90deg) translateZ(40px);
 }
 
-.one-square:nth-child(2) .boxtop::before{
+.one-square:nth-child(1) .boxtop::before,
+.one-square:nth-child(3) .boxtop::before{
     width: 80px;
     height: 80px;
+}
+
+.title{
+    margin: 20px auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 50px;
 }
 
 .about-wrapper{
@@ -299,7 +387,17 @@ label #cancelbtn{
 }
 
 #about{
-    text-align: right;
+    margin: auto auto;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+#about p, .graphinfo p, .contact-info{
+    margin: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 #slideranimation{
@@ -541,6 +639,7 @@ label #cancelbtn{
 }
 
 .cards{
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -595,7 +694,9 @@ label #cancelbtn{
 .stats-wrapper div{
     margin: 10px;
     padding: 10px;
-    border: solid 1px blue;
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
 
 .stats-wrapper #compare{
@@ -604,7 +705,7 @@ label #cancelbtn{
     height: 40px;
     border-radius: 40px;
     border: none;
-    background: rgb(246, 136, 246);
+    background: rgb(255, 38, 255);
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -635,16 +736,72 @@ label #cancelbtn{
 }
 
 .container p, a{
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
     margin: 0;
     padding: 0;
     text-align: justify;
     line-height: 22px;
+}
+
+.container h2{
+    padding: 5px;
+    color: #fff;
+    font-family: 'Zen Dots', cursive;
+    font-size: 30px;
+}
+
+#contact-wrapper{
+    display: grid;
+}
+
+#contact-form{
+    display: black;   
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(68, 58, 58);
+    margin-bottom: 50px;
+}
+
+#contact-form textarea{
+    min-height: 100px;
+    font-size: 14px;
     color: #fff;
 }
 
-.container h1, a{
-    padding: 5px;
+.input-field{
+    margin-bottom: 10px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(102, 101, 101);
+    border-radius: 5px;
+    border: 1px solid #fff;
+    font-size: 14px;
     color: #fff;
+}
+
+.input-field::placeholder{
+    color: #fff;
+}
+
+#submit-btn{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 8rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+    background-color: rgb(152, 148, 148);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1200px){
@@ -659,24 +816,29 @@ label #cancelbtn{
         display: block;
     }
 
-    #navigation, #details{
+    #navigation{
         position: fixed;
         width: 100%;
-        background-color: var(--secondarycolor);
+        background-color: rgb(99, 95, 95);
         top: 70px;
         left: -110%;
         text-align: center;
         z-index: 10;
         transition: all .5s;
     }
+
+    #details{
+        margin-right: 60px;
+        z-index: 10;
+    }
  
-    #navigation li, #detailsli{
+    #navigation li{
         display: block;    
         line-height: 30px;
         padding: 30px;
     }
 
-    #navigation a, #details a{
+    #navigation a{
         font-size: 30px;
         --navfont: 36px;
     }
@@ -723,15 +885,9 @@ label #cancelbtn{
         display: none;
     }
 
-    #animate-elements2{
-        height: 300px;
-        display: flex;
-    }
-
     .marketplace-wrapper{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
     .cards{
@@ -778,10 +934,16 @@ label #cancelbtn{
         align-items: center;
     }
 
+    .about-wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+    }
+
     .marketplace-wrapper{
         display: grid;
-        justify-content: flex-start;
-        align-items: flex-start;
+        grid-template-columns: repeat(3,1fr);
+        gap: 10px 10px;
     }
 
     .cards{
@@ -796,11 +958,22 @@ label #cancelbtn{
 @media screen and (max-width: 600px){
     .marketplace-wrapper #elements1, #elements2{
         display: none;
-    }    
+    }
 
     .marketplace-wrapper{
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr;
         justify-content: center;
         align-items: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .animelements{
+        width: 270px;
+    }
+
+    .one-square:nth-child(1){
+        display: none;
     }
 }
