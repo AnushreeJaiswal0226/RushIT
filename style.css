@@ -639,10 +639,12 @@ label #cancelbtn{
     padding: 0;
     text-align: justify;
     line-height: 22px;
+    color: #fff;
 }
 
 .container h1, a{
     padding: 5px;
+    color: #fff;
 }
 
 @media screen and (max-width: 1200px){
