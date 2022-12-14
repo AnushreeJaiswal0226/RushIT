@@ -240,7 +240,7 @@ label #cancelbtn{
     font-family: 'Ubuntu', sans-serif;
 }
 
-#explore:hover, .place-bid:hover{
+#explore:hover, .place-bid:hover, #compare:hover{
     cursor: pointer;
 }
 
@@ -394,7 +394,7 @@ label #cancelbtn{
     max-width: 500px;
 }
 
-#about p, .graphinfo p, .contact-info{
+#about p, .graphinfo p, .graphanim h1, .contact-info{
     margin: 40px;
     text-align: center;
     color: #fff;
@@ -709,7 +709,7 @@ label #cancelbtn{
     height: 40px;
     border-radius: 40px;
     border: none;
-    background: rgb(255, 38, 255);
+    background: #FF10F0;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -783,6 +783,7 @@ label #cancelbtn{
     min-height: 100px;
     font-size: 14px;
     color: #fff;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .input-field{
@@ -795,10 +796,12 @@ label #cancelbtn{
     border: 1px solid #fff;
     font-size: 14px;
     color: #fff;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .input-field::placeholder{
     color: #fff;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 #submit-btn{
@@ -810,6 +813,7 @@ label #cancelbtn{
     padding-top: 10px;
     padding-bottom: 10px;
     color: #fff;
+    font-family: 'Ubuntu', sans-serif;
     background-color: rgb(152, 148, 148);
     border: none;
     border-radius: 10px;
@@ -832,7 +836,7 @@ label #cancelbtn{
         position: fixed;
         width: 100%;
         background-color: rgb(99, 95, 95);
-        top: 70px;
+        top: 60px;
         left: -110%;
         text-align: center;
         z-index: 10;
