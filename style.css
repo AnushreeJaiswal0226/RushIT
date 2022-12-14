@@ -9,9 +9,13 @@
     box-sizing: border-box;
 }
 
-/*::-webkit-scrollbar {
-    display: block;
-}*/
+::-webkit-scrollbar {
+    display: none;
+}
+
+body *{
+    transition: 0.3s;
+}
 
 body{
     padding: 0;
@@ -45,23 +49,10 @@ ul{
     'opsz' 48
 }
 
-.bgcolor{
-    color: #000;
-    background-color: #fff;
-    transition: 200ms ease-in-out background-color;
-}
-
-.bgcolor #navigation a, #details a, 
-#navigation li.active, #details li.active, 
-label #checkbtn, label #cancelbtn, 
-#details .material-symbols-outlined
-{
-    color: #000;
-}
-
 .nav-wrapper{
     width: 100%;
     height: 60px;
+    background-color: rgb(0, 0, 0);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -150,8 +141,8 @@ label #cancelbtn{
 }
 
 .logo-wrapper img{
-    width: 25px;
-    height: 25px;
+    width: 48px;
+    height: 48px;
     margin: 5px;
 }
 
@@ -227,8 +218,15 @@ label #cancelbtn{
     transform: translateX(0px) scale(5);
 }
 
+.home-wrapper #banner a{
+    z-index: 1;
+    width: 250px;
+    height: 60px;
+    border-radius: 70px;
+}
+
 .home-wrapper #banner #explore{
-    z-index: 10;
+    z-index: 1;
     padding: 15px;
     margin: auto auto;
     display: flex;
@@ -240,6 +238,10 @@ label #cancelbtn{
     border: none;
     background: linear-gradient(100deg, yellow, pink, blue);
     font-family: 'Ubuntu', sans-serif;
+}
+
+#explore:hover, .place-bid:hover{
+    cursor: pointer;
 }
 
 #banner #explore #circle-icon{
@@ -676,8 +678,11 @@ label #cancelbtn{
     text-align: center;
 }
 
-.place-bid{
+.card a, .stats-wrapper a{
     margin: 10px auto;
+}
+
+.place-bid{
     width: 130px;
     height: 40px;
     border-radius: 40px;
@@ -700,7 +705,6 @@ label #cancelbtn{
 }
 
 .stats-wrapper #compare{
-    margin: 10px auto;
     width: 100px;
     height: 40px;
     border-radius: 40px;
@@ -720,7 +724,7 @@ label #cancelbtn{
     max-width: 750px;
     padding: 30px;
     box-sizing: border-box;
-    margin: auto;
+    margin: 10px auto;
 }
 
 .circle{
@@ -736,8 +740,8 @@ label #cancelbtn{
 }
 
 .container p, a{
-    color: #fff;
-    font-size: 20px;
+    font-size: 15px;
+    line-height: 20px;
     font-family: 'Ubuntu', sans-serif;
     margin: 0;
     padding: 0;
@@ -745,10 +749,12 @@ label #cancelbtn{
     line-height: 22px;
 }
 
-/*Changes in done in github*/
+.container p{
+    color: #fff;
+}
+
 .container a{
-    color: blue;
-    tex-decoration: underline;
+    text-decoration: underline;
 }
 
 .container h2{
