@@ -745,6 +745,12 @@ label #cancelbtn{
     line-height: 22px;
 }
 
+/*Changes in done in github*/
+.container a{
+    color: blue;
+    tex-decoration: underline;
+}
+
 .container h2{
     padding: 5px;
     color: #fff;
